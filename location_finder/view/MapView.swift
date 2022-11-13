@@ -9,6 +9,12 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
+    @EnvironmentObject var mapData : MapViewModel
+    
+    func makeCoordinator() -> Coordinator {
+        return MapView.Coordinator()
+    }
+    
     func makeUIView(context: Context) -> MKMapView {
         let view = mapData.mapView
         
@@ -17,11 +23,6 @@ struct MapView: UIViewRepresentable {
         return view
     }
     
-    @EnvironmentObject var mapData : MapViewModel
-    
-    func makeCoordinator() -> Coordinator {
-        return MapView.Coordinator()
-    }
     
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
@@ -29,7 +30,17 @@ struct MapView: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, MKMapViewDelegate{
-        
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation.isKind(of: MKUserLocation.self){return nil}
+            else{
+                let pinAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: "PIN_ViEW")
+                pinAnnotation.tintColor = .red
+                //pinAnnotation.animatesDrop = true
+                pinAnnotation.canShowCallout = true
+                
+                return pinAnnotation
+            }
+        }
     }
     
 }

@@ -14,6 +14,7 @@
 		FA616BF6292184F70090B8FA /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA616BF5292184F70090B8FA /* Home.swift */; };
 		FA616BF8292185360090B8FA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA616BF7292185360090B8FA /* MapView.swift */; };
 		FA616BFA292186990090B8FA /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA616BF9292186990090B8FA /* MapViewModel.swift */; };
+		FA62DB932921A68B0016AF94 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62DB922921A68B0016AF94 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		FA616BF5292184F70090B8FA /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		FA616BF7292185360090B8FA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FA616BF9292186990090B8FA /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		FA616BFB29218F1C0090B8FA /* location-finder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "location-finder-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FA62DB922921A68B0016AF94 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		FA616BE4292183620090B8FA /* location_finder */ = {
 			isa = PBXGroup;
 			children = (
+				FA62DB912921A6720016AF94 /* Model */,
+				FA616BFB29218F1C0090B8FA /* location-finder-Info.plist */,
 				FA616BF4292184180090B8FA /* view */,
 				FA616BF3292184040090B8FA /* viewModel */,
 				FA616BE5292183620090B8FA /* location_finderApp.swift */,
@@ -90,6 +95,14 @@
 				FA616BF7292185360090B8FA /* MapView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		FA62DB912921A6720016AF94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA62DB922921A68B0016AF94 /* Place.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +178,7 @@
 				FA616BE8292183620090B8FA /* ContentView.swift in Sources */,
 				FA616BFA292186990090B8FA /* MapViewModel.swift in Sources */,
 				FA616BF8292185360090B8FA /* MapView.swift in Sources */,
+				FA62DB932921A68B0016AF94 /* Place.swift in Sources */,
 				FA616BF6292184F70090B8FA /* Home.swift in Sources */,
 				FA616BE6292183620090B8FA /* location_finderApp.swift in Sources */,
 			);
@@ -298,6 +312,9 @@
 				DEVELOPMENT_TEAM = KT682HX492;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "location-finder-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +344,9 @@
 				DEVELOPMENT_TEAM = KT682HX492;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "location-finder-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
