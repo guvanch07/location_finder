@@ -35,14 +35,12 @@ class MapViewModel: NSObject, ObservableObject,CLLocationManagerDelegate{
         mapView.setRegion(region, animated: true)
         mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
     }
-    
+    // Search Places ..
     func searchQuery()  {
-        
         places.removeAll()
-        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchTxt
-        
+        // Fetch ..
         MKLocalSearch(request: request).start{(response,_) in
             guard let result = response else {return}
             self.places = result.mapItems.compactMap({ (item)-> Place? in
@@ -59,7 +57,7 @@ class MapViewModel: NSObject, ObservableObject,CLLocationManagerDelegate{
         pointAnnotion.coordinate = coordinate
         pointAnnotion.title = place.placemark.name ?? "No name"
         
-        mapView.removeAnnotation(mapView.annotations as! MKAnnotation)
+        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotation(pointAnnotion)
         
         //moving
@@ -71,6 +69,8 @@ class MapViewModel: NSObject, ObservableObject,CLLocationManagerDelegate{
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        // Checking permitions ..
         switch manager.authorizationStatus{
         case .denied:
             permissionDenided.toggle()
@@ -87,14 +87,14 @@ class MapViewModel: NSObject, ObservableObject,CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-    
+    // Getting user Region
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else{return}
         
         self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        
+        // Updating Map..
         self.mapView.setRegion(self.region, animated: true)
-        
+        // Smooth animations ..
         self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, animated: true)
     }
      

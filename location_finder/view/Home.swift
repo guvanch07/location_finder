@@ -29,6 +29,7 @@ struct Home: View {
                     .padding(.horizontal)
                     .background()
                     
+                    
                     // Dispaling result
                     
                     if !mapData.places.isEmpty && mapData.searchTxt != ""{
@@ -90,12 +91,10 @@ struct Home: View {
                   dismissButton: .default(Text("Goto Settings"),
                                           action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }
-                                         )
-                  
-            )}
-        )
-        .onChange(of: mapData.searchTxt) { newValue in
+            }))
+            
+        })
+        .onChange(of: mapData.searchTxt, perform: { newValue in
             let delay = 0.3
             
             DispatchQueue.main.asyncAfter(deadline: .now() + delay){
@@ -103,7 +102,7 @@ struct Home: View {
                     self.mapData.searchQuery()
                 }
             }
-        }
+        })
     }
 }
 

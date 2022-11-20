@@ -33,9 +33,9 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             if annotation.isKind(of: MKUserLocation.self){return nil}
             else{
-                let pinAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: "PIN_ViEW")
+                let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PIN_ViEW")
                 pinAnnotation.tintColor = .red
-                //pinAnnotation.animatesDrop = true
+                pinAnnotation.animatesDrop = true
                 pinAnnotation.canShowCallout = true
                 
                 return pinAnnotation
